@@ -7,7 +7,7 @@ published: true
 _This past summer, during my internship at MongoDB, I worked with my partner, [Margaret Stephenson](https://www.linkedin.com/in/margaretstephenson), and developed a prototype Javascript engine that significantly improved performance of the `$where` operator in MongoDB. We also applied certain heuristical optimizations to allow `$where` to utilize Collection indexes where possible._
 
 
-#$where
+# $where
 
 MongoDB has a few tricks up its sleeves when it comes to database queries. A unique feature of Mongo is its [`$where`](http://docs.mongodb.org/manual/reference/operator/query/where/) operator. `$where` lets a user query a database by passing in a custom Javascript function or expression. 
 
@@ -35,13 +35,13 @@ The chart below shows a few performance tests querying for similar Documents usi
 
 Before we look at why this performance difference exists, let's go over how data is stored in Mongo.
 
-#BSON
+# BSON
 
 Data is stored as BSON Documents in MongoDB. [BSON](http://bsonspec.org/) stands for Binary JSON. BSON is a binary encoded serialization of JSON like Documents. In short, it is similar to JSON, but contains additional information that allows for the representation of data types that are not part of the JSON specification. 
 
 An important thing to note is that Mongo's native query language operates directly on the BSON Documents present in the targeted Collection.
 
-#V8 and SpiderMonkey
+# V8 and SpiderMonkey
 
 The underlying magic of `$where` exists in the Javascript engines that are used by Mongo. Depending on the release version of Mongo that is being used, the engine will either be Google's V8 or Mozilla's SpiderMonkey. These engines evaluate the provided `$where` Javascript code. For convenience sake, I'll mainly cover V8 (also because V8 was the default engine included with Mongo when we began our internship project), but similar problems exist in both.
 
@@ -53,7 +53,7 @@ Here's a diagram of what a `$where` operation would look like through V8. The re
 
 ![V8 diagram](/blog/content/images/2015/09/Screenshot-2015-09-05-17-38-36.png)
 
-#tinyJS
+# tinyJS
 
 Taking the performance problems behind `$where` into consideration, Margaret and I created a prototype Javascript engine (which we ended up naming tinyJS) with two main features in mind:
 
@@ -124,13 +124,13 @@ evaluated against a Document with the properties `{"a" : 2, "b" : 3, "c" : 1}`:
 
 ![](/blog/content/images/2015/09/Screenshot-2015-09-05-18-04-13.png)
 
-#Preliminary Results
+# Preliminary Results
 
 So how did our prototype engine fare against V8 and SpiderMonkey? We ran some preliminary tests against the two existing Javascript engines to see whether or not performance improved.
 
 ![](/blog/content/images/2015/09/Screenshot-2015-09-05-17-50-22.png)
 
-####Simple Integer Comparison
+#### Simple Integer Comparison
 Unindexed Collection of 1000 Documents of the form `{ x : i | 0 < i < 1000 }`
 
     db.Collection.find({$where: "function() {
@@ -140,7 +140,7 @@ Unindexed Collection of 1000 Documents of the form `{ x : i | 0 < i < 1000 }`
 33.6x faster than V8
 91.3x faster than SpiderMonkey
     
-####Nested Integer Comparison
+#### Nested Integer Comparison
 Unindexed Collection of 13 objects, each with 4 nested levels of 13 fields
 
     db.Collection.find({$where: "function() {
@@ -150,7 +150,7 @@ Unindexed Collection of 13 objects, each with 4 nested levels of 13 fields
 11.8x faster than V8
 12.2x faster than SpiderMonkey
 
-####Comparison Between Fields
+#### Comparison Between Fields
 Unindexed Collection of 40,000 Documents of the form `{ x: i, y: j | 0 < i, j < 2 }`
 
     db.Collection.find({$where: "function() {
@@ -160,7 +160,7 @@ Unindexed Collection of 40,000 Documents of the form `{ x: i, y: j | 0 < i, j < 
 34.8x faster than V8
 88.5x faster than SpiderMonkey
 
-####While Loop
+#### While Loop
 Unindexed Collection of 1000 Documents of the form `{ x: i | 0 < i < 1000 }`
 
     db.Collection.find({$where: "function() {
@@ -175,7 +175,7 @@ Unindexed Collection of 1000 Documents of the form `{ x: i | 0 < i < 1000 }`
 19.2x faster than V8
 49.6x faster than SpiderMonkey
 
-####Addition
+#### Addition
 Unindexed Collection of 1000 Documents of the form `{ x: i | 0 < i < 1000 }`
 
     db.Collection.find({$where: "function() {
@@ -185,7 +185,7 @@ Unindexed Collection of 1000 Documents of the form `{ x: i | 0 < i < 1000 }`
 27.0x faster than V8
 72.4x faster than SpiderMonkey
 
-#Can we do better?
+# Can we do better?
 
 However, Mongo's native query language still outperforms `$where` queries. A main reason for this is because the native query language takes into account Collection indexes and performs index scans instead of Collection scans wherever possible. This is a simple database query technique that yields huge performance gains.
 
@@ -219,7 +219,7 @@ Queries run on 5000000 Documents of the form `{ x: i | 0 < i < 5000000 }`
 
 In this particular test, tinyJS yielded performance comparable to Mongo's native query language, in the same order of magnitude (note that the vertical axis of the above chart does not start at zero).
 
-#Epilogue
+# Epilogue
 
 By the conclusion of our internship, we were able to demonstrate that V8 and SpiderMonkey can be improved upon in the very specific use case of MongoDB's `$where` operator. However, our work is far from complete. At its core, tinyJS is just a prototype project, a proof-of-concept meant to demonstrate the possibilities of running a custom solution. The grammar is incomplete, and without a complete Javascript grammar, it is definitely not production ready. With more time, the lexer and parser can be rewritten to support the full set of Javascript grammars, utilizing better parsers than our naive recursive descent parser. However, in the span of ten weeks, we learned a lot about how compilers and interpreters work, and developed a really fast implementation of a working Javascript engine. And there's just something really cool about that.
 
