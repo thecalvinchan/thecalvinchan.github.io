@@ -1,7 +1,7 @@
 ---
 title: In hindsight - A Year In Review (2013)
 layout: post
-permalink: 2013-a-year-in-review
+permalink: /2014/01/02/2013-a-year-in-review
 published: true
 ---
 Rewind back a year. After being cut from the UCLA drumline in the fall, I was looking forward to 2013. The dawn of winter signified a new beginning for me, a chance for me to redeem myself in the heat: drum-corps season. I had spent countless hours preparing myself for auditions; I was ready to prove that I was good enough. I tried out for the Pacific Crest drumline and after two days of auditions, I was given a callback. I would audition again in February.

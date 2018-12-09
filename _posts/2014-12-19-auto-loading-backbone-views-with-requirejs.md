@@ -1,7 +1,6 @@
 ---
 title: Auto-loading Backbone views with RequireJS
 layout: post
-permalink: auto-loading-backbone-views-with-requirejs
 published: true
 ---
 I'm nearing the critical period to cram for my Algorithms final tomorrow at 8 AM. But in honor of my impeccable study habits, here's a quick write up about (my approach with) auto-loading Backbone views with RequireJS.

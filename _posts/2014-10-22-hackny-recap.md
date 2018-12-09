@@ -1,7 +1,7 @@
 ---
 title: 'HackNY, NY, Y?'
 layout: post
-permalink: hackny-recap
+permalink: /blog/2014/10/23/hackny-recap
 published: true
 ---
 Recently, a lot of people have been asking me about New York. Sometimes, it's regarding this whole ["hackingNY"](http://hackny.org/a/fellows) thing that I was a part of this past summer. And other times, it's about my fascination with Manhattan and the greater NY area. But most of the time, the questions are just about how I manage to keep missing my flights out of Newark. But first, an anecdote.

@@ -1,7 +1,7 @@
 ---
 title: Using Nginx as a reverse-proxy for Node and Apache
 layout: post
-permalink: using-nginx-as-a-reverse-proxy
+permalink: /blog/2014/03/15/using-nginx-as-a-reverse-proxy
 published: true
 ---
 I recently migrated my blog from *Wordpress* to *Ghost*, but I wanted to maintain my old blog posts on *Wordpress* (check [this](/blog/a-ghostly-upgrade) out for more background information). As such, I needed to configure my server to run the two different web platforms through a similar route-subdirectory. Here's how I did it:

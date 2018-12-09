@@ -1,7 +1,6 @@
 ---
 title: Chrome Academy 2013
 layout: post
-permalink: chrome-academy-2013
 published: true
 ---
 A week ago, I was lucky enough to have graduated from the inaugural Chrome Academy Class of 2013. Chrome Academy is a new program by Google that offers college underclassmen the opportunity to spend a week at the Mountain View campus and learn about new web technology. It was an experience unlike any other: a challenge in itself, but perhaps even more challenging to describe in words. In any case, I'll try my best to detail one of my most life-changing experiences so far.

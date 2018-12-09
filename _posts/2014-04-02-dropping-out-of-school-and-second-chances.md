@@ -1,7 +1,7 @@
 ---
 title: Move fast and break things... just not the things you can't fix
 layout: post
-permalink: dropping-out-of-school-and-second-chances
+permalink: /blog/2014/02/18/dropping-out-of-school-and-second-chances
 published: true
 ---
 Recently, I've been considering taking a year off of school to work for Codecademy in New York. I first got in contact with Yoonie, the recruiter, near the end of my freshman year at UCLA. After two phone interviews, I reluctantly told her that, unfortunately, spending a year in New York was not something my parents approved of.
