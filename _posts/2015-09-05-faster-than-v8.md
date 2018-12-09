@@ -1,7 +1,6 @@
 ---
 title: Building a prototype Javascript engine for MongoDB
 layout: post
-permalink: faster-than-v8
 published: true
 ---
 _This past summer, during my internship at MongoDB, I worked with my partner, [Margaret Stephenson](https://www.linkedin.com/in/margaretstephenson), and developed a prototype Javascript engine that significantly improved performance of the `$where` operator in MongoDB. We also applied certain heuristical optimizations to allow `$where` to utilize Collection indexes where possible._
