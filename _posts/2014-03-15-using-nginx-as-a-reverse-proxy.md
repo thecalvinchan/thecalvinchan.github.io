@@ -6,7 +6,7 @@ published: true
 ---
 I recently migrated my blog from *Wordpress* to *Ghost*, but I wanted to maintain my old blog posts on *Wordpress* (check [this](/blog/a-ghostly-upgrade) out for more background information). As such, I needed to configure my server to run the two different web platforms through a similar route-subdirectory. Here's how I did it:
 
-##The environment
+## The environment
 
 I installed *Wordpress* on a new Ubuntu EC2 instance, in the directory `/var/www/blog/`. After importing my of my old posts, my *Wordpress* posts followed this slug format:
 
@@ -20,9 +20,9 @@ Since all http requests go through port 80, I needed to find a way to route cert
 
 (I decided to install another http server to proxy requests to their respective servers. However, you can easily achieve this same result by simply configuring *Apache* to proxy certain requests to *Node*)
 
-##The configuration
+## The configuration
 
-####Apache
+#### Apache
 
 First, we must configure *Apache* to listen on requests through a different port (port 80 must be open for *Nginx* to listen to). 
 
@@ -41,11 +41,11 @@ File: `/etc/apache2/sites-available/%your-site-configuration-file`
 
 What we've done is changed *Apache* to listen on port 8080 instead of 80. We should be done with all *Apache* configurations, assuming the prior configuration was default.
 
-####Node
+#### Node
 
 By default, *Ghost* configures *Node* to listen on port 2368. You don't need to change this.
 
-####Nginx
+#### Nginx
 
 Since we've changed *Apache* to listen on port 8080, Nginx can now listen to all http requests on port 80. We now need to configure it to proxy certain requests to *Apache* and other requests to *Node*. Go ahead and just copy and paste the following into your *Nginx* site configuration file. I've commented certain sections to explain what the code does.
 
@@ -102,7 +102,7 @@ These two lines use Perl formatted regular expressions to match certain requests
     
 we can use a regular expression to match URIs with `/blog/[0-9]+/` and proxy those requests to *Apache*. Additionally, we proxy all *Wordpress* specific requests matching `blog/wp-.*/` to *Apache* as well. Assuming *Ghost* slugs don't start with a date, we can proxy all the other `/blog` requests to *Node*.
 
-##Where this falls short
+## Where this falls short
 
 This solution is very dependent on the fact that my *Wordpress* slugs followed the `/blog/%year/%month/%date/%title` format. Because I am in control of my newer *Ghost* slugs, I can ensure that there will be no cross-match between the new slugs and the old slugs. However, this solution can be compromised if any new *Ghost* slug consists of only numeric characters. Alas, this is only a short-term solution to running both *Wordpress* and *Ghost*. Ideally, in the future, I can import my existing *Wordpress* posts to *Ghost* and simplify the http stack.
 

@@ -30,7 +30,7 @@ The chart below shows a few performance tests querying for similar Documents usi
         return this.x === 1;
     }"})
 
-![Performance difference between $where and query language](/blog/content/images/2015/09/Screenshot-2015-09-05-17-38-17.png)
+![Performance difference between $where and query language](/images/2015/09/Screenshot-2015-09-05-17-38-17.png)
 
 Before we look at why this performance difference exists, let's go over how data is stored in Mongo.
 
@@ -50,7 +50,7 @@ V8 is a highly optimized Javascript "interpreter." However, to call it an interp
 
 Here's a diagram of what a `$where` operation would look like through V8. The red part yields the biggest performance overhead and the yellow parts are also unnecessary performance hogs.
 
-![V8 diagram](/blog/content/images/2015/09/Screenshot-2015-09-05-17-38-36.png)
+![V8 diagram](/images/2015/09/Screenshot-2015-09-05-17-38-36.png)
 
 # tinyJS
 
@@ -69,7 +69,7 @@ Seems straightforward enough (right?). Having had zero prior experience with com
 
 Here's a simple diagram of what our finished implementation would look like:
 
-![An overview of tinyJS](/blog/content/images/2015/09/Screenshot-2015-09-05-17-38-45.png)
+![An overview of tinyJS](/images/2015/09/Screenshot-2015-09-05-17-38-45.png)
 
 ## Lexer
 
@@ -105,7 +105,7 @@ The following function would have an AST as follows:
         return ((this.a < this.b) && (this.c == 1));
     }
 
-![](/blog/content/images/2015/09/Screenshot-2015-09-05-18-03-31.png)
+![](/images/2015/09/Screenshot-2015-09-05-18-03-31.png)
 
 ## Interpreter/Evaluator
 
@@ -121,13 +121,13 @@ The following function
     
 evaluated against a Document with the properties `{"a" : 2, "b" : 3, "c" : 1}`:
 
-![](/blog/content/images/2015/09/Screenshot-2015-09-05-18-04-13.png)
+![](/images/2015/09/Screenshot-2015-09-05-18-04-13.png)
 
 # Preliminary Results
 
 So how did our prototype engine fare against V8 and SpiderMonkey? We ran some preliminary tests against the two existing Javascript engines to see whether or not performance improved.
 
-![](/blog/content/images/2015/09/Screenshot-2015-09-05-17-50-22.png)
+![](/images/2015/09/Screenshot-2015-09-05-17-50-22.png)
 
 #### Simple Integer Comparison
 Unindexed Collection of 1000 Documents of the form `{ x : i | 0 < i < 1000 }`
@@ -194,7 +194,7 @@ Mongo's native query language also builds a tree of sorts that determines which 
 
     db.foo.find({$where: function() {return this.a == this.b && this.c < 1;}})
     
-![](/blog/content/images/2015/09/Screenshot-2015-09-05-18-07-26.png)
+![](/images/2015/09/Screenshot-2015-09-05-18-07-26.png)
     
 The above query can be restructured to the following:
     
@@ -203,18 +203,18 @@ The above query can be restructured to the following:
         {$where: function() {return this.a == this.b;}}
     ]})
 
-![](/blog/content/images/2015/09/Screenshot-2015-09-05-18-09-15.png)
+![](/images/2015/09/Screenshot-2015-09-05-18-09-15.png)
 
 The inclusion of the `{c: {$lt:1}}` comparison in the Mongo tree will allow Mongo's query planner to take advantage of Collection indexes (if `foo` has a Collection index on the `c` property).
 
 Here's a diagram of our engine with these optimizations in place:
 
-![](/blog/content/images/2015/09/Screenshot-2015-09-05-18-10-11.png)
+![](/images/2015/09/Screenshot-2015-09-05-18-10-11.png)
 
 By implementing this pruning and restructuring optimization, we were able to achieve considerably faster performance with `$where` when Collections were indexed properly. Here is one test we performed:
 
 Queries run on 5000000 Documents of the form `{ x: i | 0 < i < 5000000 }`
-![tinyJS vs Query Language](/blog/content/images/2015/09/Screenshot-2015-09-05-18-12-41.png)
+![tinyJS vs Query Language](/images/2015/09/Screenshot-2015-09-05-18-12-41.png)
 
 In this particular test, tinyJS yielded performance comparable to Mongo's native query language, in the same order of magnitude (note that the vertical axis of the above chart does not start at zero).
 

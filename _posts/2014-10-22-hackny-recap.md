@@ -14,9 +14,9 @@ During my time in New York, I did not do any of the above. Instead, I stayed in 
 
 So it's safe to say that living in New York was nothing like _No Strings Attached_ (err, I mean _Friends With Benefits_). There was none of the glamour that JT so heavily bathed in, none of the exorbitant lifestyle that Hollywood so easily portrayed, and no Mila Kunis (okay, last Mila Kunis joke, I promise). Instead, there was a community of hackers that I can now confidently call family, a team of coworkers that, both, pushed me to become a better engineer and showed me how to gargoyle a keg (it's a thing, look it up), and, admittedly, way too many visits to [Saturdays](https://foursquare.com/v/saturdays-surf-nyc/4a9eb0e7f964a520e43a20e3) and [Two Hands](https://foursquare.com/v/two-hands/53b042cf498e396ed84d1344). And I loved every single minute of it.
 
-##HackNY
+## HackNY
 
-![HackNY - Class of 2014](/blog/content/images/2014/Oct/10498360_10152663359948109_6294433061062863721_o.jpg)
+![HackNY - Class of 2014](/images/2014/10/10498360_10152663359948109_6294433061062863721_o.jpg)
 
 In the beginning of summer, I started a [blog post](http://thecalvinchan.com/blog/2014/05/28/hackny-2014/) about [HackNY](http://hackny.org). I also told myself that I would update it every day. That didn't happen (I'm surprised I even got to day three).
 
@@ -32,11 +32,11 @@ Those ten weeks went by way too quickly. By the ninth week, I sort of had this w
 
 To say that the fellowship ended after ten weeks would be misleading. I experienced that first hand almost immediately after I left. I reunited with a lot of my friends and got to meet some of the alumNY. In fact, I'm typing this right now on a plane, on my way back from a hackNY reunion in New York. I've definitely developed even stronger relationships with hackNY and its alumNY these past few months, and that brings with it a feeling I just can't put into words.
 
-![HackNY Fellows at HackMIT](/blog/content/images/2014/Oct/10548970_10205007499851833_7093419414607531790_o.jpg)
+![HackNY Fellows at HackMIT](/images/2014/10/10548970_10205007499851833_7093419414607531790_o.jpg)
 
-##Interning at Skillshare
+## Interning at Skillshare
 
-![Skillshare](/blog/content/images/2014/Oct/logo_1200_630.jpg)
+![Skillshare](/images/2014/10/logo_1200_630.jpg)
 
 As a hackNY fellow, I interned at [Skillshare](http://skillshare.com), an online learning community that helps users master real-world skills through project-based classes. Most summer internships last about ten weeks. I was at Skillshare for just under four months, having extended my internship beyond the ten week timeline of the hackNY fellowship.
 
@@ -54,7 +54,7 @@ As an engineer, I often feel protective of my code; a sense of ownership often a
 
 My internship started in May, near the end of the second quarter for the company. Sometimes, I wonder if it was just plain luck that I entered the company at the start of a new quarter, mainly because I was able to take part in the planning the goals and milestones for the next quarter. And on that topic, to celebrate the end of Q2, Skillshare rented out a huge beach house in the Hamptons for the quarterly retreat.
 
-![Beach House in the Hamptons](/blog/content/images/2014/Oct/10492313_10204094084097010_2348091496972673538_n.jpg)
+![Beach House in the Hamptons](/images/2014/10/10492313_10204094084097010_2348091496972673538_n.jpg)
 
 I mean, if that wasn't the perfect way to start an internship, I don't know what would be. We stayed in the Hamptons for a week, spending a lot of time discussing the goals and priorities for Q3. The engineering team, in particular, isolated specific aspects to focus on for the third quarter (i.e. platform stability, security, etc.). We spent most mornings working, but implemented daily siestas. It was an excellent opportunity for me to get to know the rest of the company, and by the end of the week, we were all sunburnt cornhole champions.
 
@@ -81,11 +81,11 @@ I also established various key results under each objective (most of which I'm h
 
 Every week, I had a sync up with my manager, Angie, about my progress towards my OKRs. These were called 1-on-1s and they were opportunities for me to discuss what I had accomplished and what I would like to accomplish in the upcoming week. In addition to talking about my OKRs, I was also able to talk about anything else that I had questions about or other things I wanted to achieve. By the end of my internship, I had pushed some Ruby code to the Chef cookbooks of our dev environment (prior to this, I had never worked with Ruby), helped ship a data bootstrap component to reduce the number of AJAX requests, and took part in diagnosing a few critical bugs and failures.
 
-![Quarter 3 Retreat - My Last Day at Skillshare](/blog/content/images/2014/Oct/Photo_Oct_03__1_52_06_PM.jpg)
+![Quarter 3 Retreat - My Last Day at Skillshare](/images/2014/10/Photo_Oct_03__1_52_06_PM.jpg)
 
-##Living in New York City
+## Living in New York City
 
 Five words. 
 
-![I freakin love this city!](/blog/content/images/2014/Oct/Screenshot_2014_10_22_23_44_33.png)
+![I freakin love this city!](/images/2014/10/Screenshot_2014_10_22_23_44_33.png)
 

@@ -15,7 +15,7 @@ The first solution is less than ideal because you would essentially be loading a
 
 To keep things isolated, I prefer to handle front-end dependency injection on the front-end. A super helpful library is [RequireJS](http://requirejs.org/). RequireJS allows you to define dependencies within each javascript file you create. Thus, if one of your javascript files have dependencies in another file, there's no need to worry about including the other file's `<script>` tag first.
 
-![RequireJS](/blog/content/images/2014/Dec/Screenshot_2014_12_18_20_55_35.png)
+![RequireJS](/images/2014/12/Screenshot_2014_12_18_20_55_35.png)
 
 However, RequireJS itself still doesn't solve the issue of loading an explicit view for a particular page (it only takes care of loading that view's dependencies). I found that an easy way to do this is to emulate Rails-like routing through RequireJS.
 
