@@ -32,8 +32,9 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
+  font-weight: 400;
+  letter-spacing: 1px;
   color: $darkerGray;
-  font-weight: bold;
 }
 
 h1 {
@@ -189,7 +190,6 @@ img {
   color: $darkGray;
   cursor: pointer;
   font-family: $helveticaNeue;
-  font-weight: 300;
   font-size: 28px;
   letter-spacing: 1px;
 }

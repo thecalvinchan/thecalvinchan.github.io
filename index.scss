@@ -35,8 +35,9 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
+  font-weight: 400;
+  letter-spacing: 1px;
   color: $darkerGray;
-  font-weight: bold;
 }
 
 h1 {
@@ -52,6 +53,7 @@ h2 {
 
 h3 {
   font-size: 20px;
+  margin: 50px 0;
 }
 
 h4 {
@@ -180,9 +182,28 @@ img {
   margin: 0;
   color: $darkGray;
   font-family: $helveticaNeue;
-  font-weight: 300;
   font-size: 28px;
   letter-spacing: 1px;
+}
+
+.wrapper-masthead {
+  margin-bottom: 50px;
+}
+
+.page-header {
+  width: 100%;
+  padding: 20px 0;
+  margin-bottom: 50px;
+  border-bottom: 1px solid $lightGray;
+  text-align: left;
+
+  @include mobile {
+    text-align: center;
+  }
+}
+
+.page-title {
+  margin-bottom: 50px;
 }
 
 @keyframes fadeinlinks {
